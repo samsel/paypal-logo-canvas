@@ -1,0 +1,26 @@
+{
+  "name": "paypal-logo-canvas",
+  "version": "0.0.1",
+  "homepage": "https://github.com/samsel/paypal-logo-canvas",
+  "authors": [
+    "Sam Selvanathan <sjasel@gmail.com>"
+  ],
+  "description": "a javascript library to draw PayPal Logo on canvas",
+  "main": "index.js",
+  "license": "Apache License",
+  "keywords": [
+    "paypal",
+    "canvas",
+    "logo",
+    "2d",
+    "html5"
+  ],  
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ]
+}
