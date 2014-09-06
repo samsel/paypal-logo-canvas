@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>paypal logo on canvas demo</title>
+    </head>
+    <body>
+        <canvas id='paypal-logo' height='300'></canvas>
+        <script src='../index.js'></script>
+        <script>
+            var canvasEl = document.getElementById('paypal-logo');
+            window.PayPalLogoCanvas.drawOnCanvas(canvasEl, 120);
+        </script>
+    </body>
+</html> 
