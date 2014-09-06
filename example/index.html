@@ -4,11 +4,11 @@
         <title>paypal logo on canvas demo</title>
     </head>
     <body>
-        <canvas id='paypal-logo' height='300'></canvas>
+        <canvas id='paypal-logo' width='300' height='300'></canvas>
         <script src='../index.js'></script>
         <script>
             var canvasEl = document.getElementById('paypal-logo');
-            window.PayPalLogoCanvas.drawOnCanvas(canvasEl, 120);
+            PayPalLogoCanvas.draw(canvasEl, 200);
         </script>
     </body>
 </html> 
