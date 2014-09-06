@@ -5,25 +5,25 @@
 
 	'use strict';
 
-  // Set up appropriately for the environment. Start with AMD.
-  if (typeof define === 'function' && define.amd) {
-    define([], function() {
-      // Export global even in AMD case in case this script is loaded with
-      // others that may still expect a global PayPalLogoCanvas.
-      root.PayPalLogoCanvas = factory(root, {});
-    });
+	// Set up appropriately for the environment. Start with AMD.
+	if (typeof define === 'function' && define.amd) {
+		define([], function() {
+		// Export global even in AMD case in case this script is loaded with
+		// others that may still expect a global PayPalLogoCanvas.
+		root.PayPalLogoCanvas = factory(root, {});
+	});
 
-  // Next for Node.js or CommonJS.
-  } else if (typeof exports !== 'undefined') {
-    factory(root, {});
+	// Next for Node.js or CommonJS.
+	} else if (typeof exports !== 'undefined') {
+		factory(root, {});
 
-  // Finally, as a browser global.
-  } else {
-    root.PayPalLogoCanvas = factory(root, {});
-  }
+	// Finally, as a browser global.
+	} else {
+		root.PayPalLogoCanvas = factory(root, {});
+	}
 
 }(this, function(root, PayPalLogoCanvas) {
-
+	
 	'use strict';
 
 	var darkBlue = 'rgba(31,59,128,0.9)';
@@ -41,7 +41,7 @@
 		var headHeight   = height - legHeight;
 		var topHeadProjection     = legWidth + config.size * 0.23;
 		var bottomHeadCurveOffset = config.y + config.size * 0.22;
-		
+
 		var ctx = config.ctx;
 		// begin the path trace on the given context
 		ctx.beginPath();
@@ -49,8 +49,8 @@
 		// start drawing head of 'P'
 		ctx.moveTo(config.x, config.y+cornerRadius);
 
-    // draw the top left curved corner and the top of
-    // 'P' till it starts to curve down.
+		// draw the top left curved corner and the top of
+		// 'P' till it starts to curve down.
 		ctx.quadraticCurveTo(config.x, config.y, config.x+cornerRadius, config.y);
 		ctx.lineTo(topHeadProjection, config.y);
 
@@ -59,24 +59,24 @@
 		headWidth - 2*cornerRadius, headHeight + bottomHeadCurveOffset, 
 		legWidth+ 2*cornerRadius,legHeight); 
 
-    // draw the right side of the leg 
-    // and the curved potion that connects
-    // this leg to the Head of 'P'
+		// draw the right side of the leg 
+		// and the curved potion that connects
+		// this leg to the Head of 'P'
 		ctx.quadraticCurveTo(legWidth, legHeight, legWidth, legHeight+cornerRadius);
 		ctx.lineTo(legWidth, height-cornerRadius);
 
-    // draw the bottom potion of the leg
-    // and the bottom two rounded corners
-    // for the leg of 'P'
+		// draw the bottom potion of the leg
+		// and the bottom two rounded corners
+		// for the leg of 'P'
 		ctx.quadraticCurveTo(legWidth, height, legWidth-cornerRadius, height);
 		ctx.lineTo(config.x+cornerRadius, height);
 		ctx.quadraticCurveTo(config.x, height, config.x, height-cornerRadius);
 
-    // finish by drawing the left side of the 'P'
+		// finish by drawing the left side of the 'P'
 		ctx.lineTo(config.x, config.y+cornerRadius);
 
-    // stroke and fill the drawn path
-    // with the supplied color
+		// stroke and fill the drawn path
+		// with the supplied color
 		ctx.fillStyle = config.color;
 		ctx.fill();  
 		ctx.strokeStyle = config.color;
@@ -84,44 +84,44 @@
 		ctx.stroke();
 	};
 
-  /*
-    The public api to draw the PayPal Logo on canvas.
-    
-    @param {object} canvasEl - the canvas HTML Element to draw.
-    @param {number} size - pixel size of the PayPal logo to draw.
-  */
-  PayPalLogoCanvas.draw = function (canvasEl, size) {
-  	  // get a reference to the 2d context of canvas
-  	  var ctx = canvasEl.getContext('2d'); 
-		  // give enough padding-room by shifting
-		  // the start point inside canvas with the 
-		  // following values so that the logo appears  
-		  // visible even after it is titled.
-			var startX = 25;
-			var startY = 10;  	
-			// apply a transform on the x axis so that 
-			// the logo appears a bit tilted on the x-axis.
-			ctx.transform(1, 0, Math.sin(-0.1), 1, 0, 0);
-			// draw the light blue 'P', with shifted start point and
-			// 96% of the given size so that it appears below the 
-			// dark colored 'P' that we are about to draw.
-			drawLetter_P({
-				ctx: ctx,
-				x: startX + size*0.26,
-				y: startY + size*0.25,
-				size: size*0.96,
-				color: lightBlue 
-			});
-			//draw the dark colored 'P'
-			drawLetter_P({
-				ctx: ctx,
-				x: startX,
-				y: startY,
-				size: size,
-				color: darkBlue 
-			});
-	};	
+	/*
+		The public api to draw the PayPal Logo on canvas.
 
-  return PayPalLogoCanvas;
+		@param {object} canvasEl - the canvas HTML Element to draw.
+		@param {number} size - pixel size of the PayPal logo to draw.
+	*/
+	PayPalLogoCanvas.draw = function (canvasEl, size) {
+		// get a reference to the 2d context of canvas
+		var ctx = canvasEl.getContext('2d'); 
+		// give enough padding-room by shifting
+		// the start point inside canvas with the 
+		// following values so that the logo appears  
+		// visible even after it is titled.
+		var startX = 25;
+		var startY = 10;  	
+		// apply a transform on the x axis so that 
+		// the logo appears a bit tilted on the x-axis.
+		ctx.transform(1, 0, Math.sin(-0.1), 1, 0, 0);
+		// draw the light blue 'P', with shifted start point and
+		// 96% of the given size so that it appears below the 
+		// dark colored 'P' that we are about to draw.
+		drawLetter_P({
+			ctx: ctx,
+			x: startX + size*0.26,
+			y: startY + size*0.25,
+			size: size*0.96,
+			color: lightBlue 
+		});
+		//draw the dark colored 'P'
+		drawLetter_P({
+			ctx: ctx,
+			x: startX,
+			y: startY,
+			size: size,
+			color: darkBlue 
+		});
+	};
+
+	return PayPalLogoCanvas;
 
 }));
