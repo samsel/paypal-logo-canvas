@@ -40,16 +40,20 @@
 		ctx.stroke();
 	};  	
 
-	return {
-		drawPayPalLogoOnCanvas : function (canvasEl) {
-			var size = 120;
+    var publicAPI = {
+
+    	drawOnCanvas : function (canvasEl, size) {
 			var startX = 40;
 			var startY = 10;
 			var ctx = canvasEl.getContext('2d');
 			ctx.transform(1, 0, Math.sin(-0.1), 1, 0, 0);
 			drawLetter_P(ctx, startX+size * 0.26, startY+size * 0.25, size*0.96, 'rgba(23,155,215,1)');
 			drawLetter_P(ctx, startX, startY, size, 'rgba(31,59,128,0.9)');	
-		};
-	};
+		}
+    };
+
+    window.PayPalLogoCanvas = publicAPI;
+
+    return publicAPI;
 
 })(window, document);
