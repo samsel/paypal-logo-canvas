@@ -1,7 +1,7 @@
-Paypal Logo On Canvas
+PayPal Logo On Canvas
 =====================
 
-a javascript library to draw PayPal Logo on a given canvas.
+a simple javascript library to draw PayPal Logo on a given canvas.
 
 ![PayPal Logo](https://raw.githubusercontent.com/samsel/paypal-logo-canvas/master/example/example.png)
 
@@ -22,8 +22,8 @@ $ bower install paypal-logo-canvas
   // PayPal logo to draw.
 
   // assuming a canvas element with ID 'paypal-logo' 
-  // exists in the DOM, the below code draw the PayPal 
-  // logo of size 200px into that canvas.
+  // exists in the DOM, the below code draws the PayPal 
+  // logo of size 200px onto that canvas.
 
   var canvasEl = document.getElementById('paypal-logo');
   PayPalLogoCanvas.draw(canvasEl, 200);
