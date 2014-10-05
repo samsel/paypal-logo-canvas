@@ -33,3 +33,6 @@ $ bower install paypal-logo-canvas
 ### example
 * jsfiddle: http://jsfiddle.net/samsel/unqrods8/3/
 * html: https://github.com/samsel/paypal-logo-canvas/blob/master/example/index.html
+ 
+###### a blog post about this library
+http://samsel.github.io/2014/09/20/the-paypal-logo-challenge/
